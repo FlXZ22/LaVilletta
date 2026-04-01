@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Villetta | Irish Pub Cinisello Balsamo</title>
+  <meta name="description"
+    content="Dove la birra incontra l'anima irlandese. Vetrate panoramiche, birra fredda, gente vera.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NavBar -->
+  <nav class="main-nav">
+    <a href="#hero" class="nav-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      </svg>
+      <span>Villetta.</span>
+    </a>
+    <div class="nav-links">
+      <a href="#chi-siamo">Il Locale</a>
+      <a href="#menu">Menù</a>
+      <a href="#gallery">Galleria</a>
+      <a href="#reviews">Recensioni</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#info-map" class="btn-nav">Scopri dove</a>
+    </div>
+  </nav>
+
+  <!-- 0. Preloader -->
+  <div id="preloader">
+    <svg class="lv-logo-svg" width="100" height="100" viewBox="0 0 100 100">
+      <path d="M 30 20 L 30 80 L 60 80 M 70 20 L 70 80 L 50 50" />
+    </svg>
+    <div class="loading-bar-wrapper">
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+
+  <!-- 1. Hero -->
+  <section id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('images/hero.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero1.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div id="tsparticles"></div>
+
+    <div class="hero-content container">
+      <h1 class="hero-title" id="stagger-title">Dalla colazione all'ultima birra tutto in un posto solo.</h1>
+      <div id="hero-info-badge" class="hero-info-badge"></div>
+      <p class="hero-subtitle">Aperitivi, cocktail artigianali, pranzo e serate con musica dal vivo. In stile rustico, a
+        Cinisello Balsamo.</p>
+
+      <div class="cta-group">
+        <a href="#menu" class="btn btn-primary">🍺 Scopri il Menù</a>
+        <a href="#info-map" class="btn btn-secondary glass">📍 Come Arrivare</a>
+      </div>
+    </div>
+
+    <div class="smoke-overlay"></div>
+    <div class="scroll-down">↓</div>
+  </section>
+
+  <!-- 2. Apple Style Scroll Video -->
+  <section id="apple-scroll">
+    <div class="sticky-apple">
+      <div class="video-container">
+        <video id="scroll-video" src="Assets/birra.mp4" playsinline muted preload="auto"></video>
+      </div>
+      <div class="apple-texts">
+        <div class="apple-text t1"><span>La nostra visione</span>Ogni pinta ha la sua storia.</div>
+        <div class="apple-text t2"><span>L'eccellenza</span>Versata con cura, servita con passione.</div>
+        <div class="apple-text t3"><span>Il Benvenuto</span>Benvenuto alla Villetta. 🍺</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Chi Siamo -->
+  <section id="chi-siamo" class="container">
+    <div class="split-grid">
+      <div class="chi-text-block">
+        <h2 class="section-title">Non solo un pub.<br><span>Un'esperienza.</span></h2>
+        <p>Certi posti li riconosci appena entri. Il legno, la luce giusta, il rumore dei bicchieri. Da noi trovi un
+          banco dove sederti davvero con una birra buona in mano e nessuna fretta di andare via.</p>
+        <p>Siamo il tuo angolo di pace serale, sia che tu sia accompagnato dai tuoi amici, o solo, in cerca di buona
+          birra e una chiacchiera autentica.</p>
+        <ul class="feature-list">
+          <li>🏡 <span><strong>Ambiente rustico</strong> con fantastica veranda e terrazza esterna</span></li>
+          <li>🍻 <span><strong>Spilli perfetti</strong> e ampia selezione di birre artigianali</span></li>
+          <li>🎯 <span><strong>Il tuo quartiere</strong> – Uno spazio dove sentirsi a casa, a Cinisello Balsamo</span>
+          </li>
+        </ul>
+      </div>
+      <div class="img-tilt-container" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-perspective="1000">
+        <div class="img-glow"></div>
+        <img src="images/pub-1.jpg" alt="La Villetta Pub">
+        <div class="badge-float">
+          <span class="badge-num">4,2/5 ★</span>
+          <span class="badge-lbl">111+ Recensioni Google</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 5. Menu -->
+  <section id="menu">
+    <div class="container">
+      <h2 class="section-title menu-header-title">Il Nostro Menù</h2>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="birre">🍺 Birre</button>
+        <button class="tab-btn" data-tab="aperitivi">🍹 Aperitivi</button>
+        <button class="tab-btn" data-tab="cocktail">🍸 Cocktail</button>
+        <button class="tab-btn" data-tab="stuzzichini">🍟 Stuzzichini</button>
+      </div>
+
+      <!-- Birre -->
+      <div class="tab-content active" id="tab-birre">
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Guinness Draught</h3>
+            <span class="menu-item-price">€ 6.00</span>
+          </div>
+          <p class="menu-item-desc">La stout irlandese per eccellenza. Scura, cremosa, inconfondibile e servita con il
+            perfetto trifoglio.</p>
+        </div>
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Kilkenny Irish Ale</h3>
+            <span class="menu-item-price">€ 6.00</span>
+          </div>
+          <p class="menu-item-desc">Rossa ambrata dal sapore morbido, tostato e beverino.</p>
+        </div>
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Birra Artigianale IPA</h3>
+            <span class="menu-item-price">€ 6.50</span>
+          </div>
+          <p class="menu-item-desc">Selezione a rotazione delle migliori IPA, profumate e piacevolmente amare.</p>
+        </div>
+      </div>
+
+      <!-- Aperitivi -->
+      <div class="tab-content" id="tab-aperitivi">
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Aperitivo della Casa</h3>
+            <span class="menu-item-price">€ 12.00</span>
+          </div>
+          <p class="menu-item-desc">Un drink a scelta accompagnato da un abbondante tagliere misto di salumi formaggi e
+            molto altro.</p>
+        </div>
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Aperitivo Vegetariano</h3>
+            <span class="menu-item-price">€ 10.00</span>
+          </div>
+          <p class="menu-item-desc">Selezione di verdure, focaccia calda ai cereali e formaggi misti con drink a scelta.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cocktail -->
+      <div class="tab-content" id="tab-cocktail">
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Premium Gin Tonic</h3>
+            <span class="menu-item-price">€ 8.00</span>
+          </div>
+          <p class="menu-item-desc">Scegli tra la nostra ampia selezione di gin, abbinati a toniche botaniche di
+            prim'ordine.</p>
+        </div>
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Negroni Perfetto</h3>
+            <span class="menu-item-price">€ 7.00</span>
+          </div>
+          <p class="menu-item-desc">Un classico intramontabile, bilanciato ed elegante.</p>
+        </div>
+      </div>
+
+      <!-- Stuzzichini -->
+      <div class="tab-content" id="tab-stuzzichini">
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Patatine Fritte</h3>
+            <span class="menu-item-price">€ 4.50</span>
+          </div>
+          <p class="menu-item-desc">Croccanti fuori e calde dentro, servite con salse artigianali.</p>
+        </div>
+        <div class="menu-card glass" data-tilt data-tilt-max="5">
+          <div class="menu-card-header">
+            <h3 class="menu-item-title">Anelli di Cipolla</h3>
+            <span class="menu-item-price">€ 5.00</span>
+          </div>
+          <p class="menu-item-desc">Pastellati alla birra e fritti dorati.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Galleria -->
+  <section id="gallery">
+    <div class="gallery-header">
+      <h2 class="section-title clip-reveal">Galleria</h2>
+      <p>Esplora la nostra essenza attraverso scatti d'autore.</p>
+    </div>
+
+    <div class="floria-grid">
+      <div class="floria-card card-large">
+        <img src="images/pub-1.jpg" alt="Atmosfera">
+        <div class="card-overlay"></div>
+        <h3 class="card-title">Atmosfera & Spazi</h3>
+      </div>
+      <div class="floria-card card-small">
+        <img src="images/pub-2.jpg" alt="Birre alla spina">
+        <div class="card-overlay"></div>
+        <h3 class="card-title">Selezione Birre</h3>
+      </div>
+      <div class="floria-card card-small">
+        <img src="images/pub-3.jpg" alt="Cocktail">
+        <div class="card-overlay"></div>
+        <h3 class="card-title">Mixology</h3>
+      </div>
+      <div class="floria-card card-small">
+        <img src="images/pub-4.jpg" alt="Menu Food">
+        <div class="card-overlay"></div>
+        <h3 class="card-title">Food & Snack</h3>
+      </div>
+      <div class="floria-card card-small">
+        <img src="images/pub-5.jpg" alt="Eventi e serata">
+        <div class="card-overlay"></div>
+        <h3 class="card-title">Eventi & Serate</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Recensioni -->
+  <section id="reviews">
+    <div class="container gallery-header" style="margin-bottom: 8rem;">
+      <h2 class="section-title clip-reveal" style="color: #fff;">Recensioni</h2>
+      <p style="color: #A1A1AA;">Esperienze autentiche condivise da chi vive La Villetta ogni giorno.</p>
+    </div>
+
+    <div class="floria-reviews-wrapper">
+      <div class="floria-review-card frc-1">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Tavoli all'aperto fantastici e veranda super accogliente. Ottima la selezione di birre
+          alla spina, e staff top.</p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: #333;">T</div>
+          <div class="author-info">
+            <span class="author-name">Tiziano Tt</span>
+            <span class="author-role">CLIENTE AFFEZIONATO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="floria-review-card frc-2">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Un punto di riferimento assoluto a Cinisello Balsamo. Hanno una vasta scelta di birre di
+          qualità e spazi eccellenti sia dentro che nella grande terrazza esterna.</p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: #444;">M</div>
+          <div class="author-info">
+            <span class="author-name">Mauro Benaglia</span>
+            <span class="author-role">LOCAL GUIDE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="floria-review-card frc-3">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">L'aperitivo perfetto! Cocktail eseguiti a regola d'arte e il tagliere della casa è
+          spettacolare. Molto consigliato per serate relax.</p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: #222;">F</div>
+          <div class="author-info">
+            <span class="author-name">Francesca R.</span>
+            <span class="author-role">APPASSIONATA COCKTAIL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="floria-review-card frc-4">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Elegante, fluido e brillantemente gestito. Non sembra solo un pub, è un'esperienza
+          attenta che si distingue sussurrando invece di urlare.</p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: #555;">D</div>
+          <div class="author-info">
+            <span class="author-name">Davide Colombo</span>
+            <span class="author-role">RECENSORE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="floria-review-card frc-5">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">L'attenzione alle interazioni più piccole rende ogni serata appagante. Ambiente curato e
+          bellissima atmosfera, torneremo sicuramente.</p>
+        <div class="review-author">
+          <div class="author-avatar" style="background: #333;">S</div>
+          <div class="author-info">
+            <span class="author-name">Silvia M.</span>
+            <span class="author-role">VISITATRICE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Info & Map -->
+  <section id="info-map" class="container">
+    <div class="info-split">
+      <div>
+
+        <h2 class="section-title">Facile da trovare.<br>Difficile da lasciare.</h2>
+        <p style="font-size: 1rem; color: #888; line-height: 1.6;">
+          Siamo a Cinisello Balsamo, con parcheggio nelle vicinanze.
+        </p>
+
+        <div class="info-meta">
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Indirizzo</h4>
+              <p>Via Amedeo Modigliani 24, ang. Via G. Segantini<br>20092 Cinisello Balsamo (MI)</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">⏰</div>
+            <div>
+              <h4>Orari
+                <span id="open-badge" class="status-badge closed">
+                  <span class="status-dot"></span>
+                  <span id="open-text">Calcolando...</span>
+                </span>
+              </h4>
+              <p>
+                Lun–Gio: 6:30 – 21:00<br>
+                Ven: 6:30 – 22:00<br>
+                Sab: 16:00 – 00:00<br>
+                Dom: Variabile — <a href="tel:0266594895"
+                  style="color: inherit; text-decoration: underline;">contattaci</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">💡</div>
+            <div>
+              <h4>Servizi</h4>
+              <p>Terrazza esterna · Musica live · Serate karaoke · Parcheggio disponibile</p>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="tel:0266594895" class="phone-big">📞 02 6659 4895</a>
+
+      </div>
+
+      <div class="map-box glass">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.1!2d9.2039184!3d45.5499721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786bf85fc0abf77%3A0x2555dc551138bd5a!2sLa%20Villetta!5e0!3m2!1sit!2sit!4v1"
+          title="Mappa La Villetta - Cinisello Balsamo">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+  <!-- 9. Footer -->
+  <footer>
+    <div class="container">
+      <a href="#" class="footer-logo">LA VILLETTA</a>
+
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#chi-siamo">L'Esperienza</a>
+        <a href="#menu">Menù</a>
+        <a href="#gallery">Atmosfera</a>
+        <a href="#info-map">Contatti</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/barlavillettadicinisello/" target="_blank">
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+          </svg>
+        </a>
+      </div>
+
+      <svg class="clover-separator" viewBox="0 0 24 24">
+        <!-- Minimalist star/flower geometric replacement for clover -->
+        <path d="M12 2 L12 22 M2 12 L22 12 M4.93 4.93 L19.07 19.07 M4.93 19.07 L19.07 4.93" />
+      </svg>
+
+      <p class="copyright">© 2025 La Villetta · Cinisello Balsamo<br>Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop">↑</button>
+
+  <!-- CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+  <!-- App Script -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
