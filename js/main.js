@@ -11,17 +11,27 @@ window.addEventListener('load', () => {
 
 function initApp() {
   // 1. Lenis Smooth Scroll
-  const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  requestAnimationFrame(raf);
-  
+  const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
+
+  let lenis;
+  if (!isMobile) {
+    lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+
   // Fix: Force immediate scroll on first click for navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = this.getAttribute('href');
       if (target === "#") return;
-      lenis.scrollTo(target);
+      if (lenis) {
+        lenis.scrollTo(target);
+      } else {
+        const el = document.querySelector(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 
@@ -29,18 +39,20 @@ function initApp() {
   gsap.registerPlugin(ScrollTrigger);
 
   // 3. Hero Particles
-  tsParticles.load("tsparticles", {
-    fpsLimit: 60,
-    particles: {
-      color: { value: "#C8860A" },
-      links: { enable: false },
-      move: { enable: true, speed: 1.5, direction: "top", random: true, outModes: "out" },
-      number: { density: { enable: true, area: 800 }, value: 60 },
-      opacity: { value: { min: 0.1, max: 0.5 }, animation: { enable: true, speed: 1 } },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 4 } }
-    }
-  });
+  if (window.innerWidth > 768) {
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        color: { value: "#C8860A" },
+        links: { enable: false },
+        move: { enable: true, speed: 1.5, direction: "top", random: true, outModes: "out" },
+        number: { density: { enable: true, area: 800 }, value: 60 },
+        opacity: { value: { min: 0.1, max: 0.5 }, animation: { enable: true, speed: 1 } },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 4 } }
+      }
+    });
+  }
 
   // 4. Hero Text Animations
   const title = document.getElementById('stagger-title');
@@ -71,7 +83,7 @@ function initApp() {
     y: 0, opacity: 1, duration: 1,
     scrollTrigger: { trigger: '#chi-siamo', start: 'top 70%' }
   });
-  
+
   gsap.to('.clip-reveal', {
     clipPath: 'inset(0 0% 0 0)', duration: 1.5, ease: 'power4.inOut',
     scrollTrigger: { trigger: '#gallery', start: 'top 80%' }
@@ -98,7 +110,7 @@ function initApp() {
     if (day >= 1 && day <= 4 && hr >= 6 && hr < 21) open = true;
     if (day === 5 && hr >= 6 && hr < 22) open = true;
     if (day === 6 && hr >= 16 && hr <= 23) open = true;
-    
+
     const b = document.getElementById('open-badge'), t = document.getElementById('open-text');
     if (open) { b.className = 'status-badge open'; t.innerText = 'Aperto Ora'; }
     else { b.className = 'status-badge closed'; t.innerText = 'Chiuso Ora'; }
@@ -108,16 +120,28 @@ function initApp() {
   // 10. Scroll To Top Button
   const stBtn = document.getElementById('scrollTop');
   window.addEventListener('scroll', () => {
-    if(window.scrollY > 500) stBtn.classList.add('visible');
+    if (window.scrollY > 500) stBtn.classList.add('visible');
     else stBtn.classList.remove('visible');
   });
-  stBtn.addEventListener('click', () => { lenis.scrollTo(0); });
-  
-  // 11. Custom Vanilla Tilt Initialization for dynamically injected content
-  VanillaTilt.init(document.querySelectorAll(".menu-card"), {
-    max: 5,
-    speed: 400
+  stBtn.addEventListener('click', () => {
+    if (lenis) lenis.scrollTo(0);
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // 11. Custom Vanilla Tilt Initialization for dynamically injected content
+  const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
+  if (!isTouchDevice()) {
+    VanillaTilt.init(document.querySelectorAll(".menu-card"), {
+      max: 5,
+      speed: 400
+    });
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 8,
+      speed: 400,
+      perspective: 1000
+    });
+  }
 
   initScrubVideo();
 }
@@ -131,14 +155,20 @@ function initScrubVideo() {
   if (video) {
     video.pause();
     video.currentTime = 0;
-    
+
+    const unlockVideo = () => {
+      video.play().then(() => video.pause()).catch(() => { });
+      document.removeEventListener('touchstart', unlockVideo);
+    };
+    document.addEventListener('touchstart', unlockVideo, { once: true });
+
     ScrollTrigger.create({
       trigger: '#apple-scroll',
       start: 'top top',
       end: 'bottom bottom',
       scrub: true, // Maximally fluid: follows scroll without delay
       onUpdate: (self) => {
-        if (video.duration) {
+        if (video.readyState >= 2 && video.duration) {
           video.currentTime = self.progress * video.duration;
         }
       }
@@ -150,10 +180,10 @@ function initScrubVideo() {
     });
   }
 
-  // Fluid text reveals synchronized with video
-  gsap.to('.t1', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '15% top', end: '30% top', scrub: 1 }});
-  gsap.to('.t2', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '45% top', end: '60% top', scrub: 1 }});
-  gsap.to('.t3', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '75% top', end: '95% top', scrub: 1 }});
+  // Fluid text reveals synchronized with video - Optimized timings to appear 1s (~10-15% scroll) earlier
+  gsap.to('.t1', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '5% top', end: '25% top', scrub: 1 } });
+  gsap.to('.t2', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '35% top', end: '55% top', scrub: 1 } });
+  gsap.to('.t3', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 0.5, yoyo: true, repeat: 1, scrollTrigger: { trigger: '#apple-scroll', start: '65% top', end: '90% top', scrub: 1 } });
 
   // 12. Hero Slideshow
   const heroSlides = document.querySelectorAll('.hero-slide');
