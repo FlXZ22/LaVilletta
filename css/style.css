@@ -1111,10 +1111,16 @@ ul {
 .footer-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/hero.jpg');
+  background-image: url('../images/optimized/hero-900.jpg');
   background-size: cover;
   background-position: center;
   z-index: 0;
+}
+
+@media (min-width: 901px) {
+  .footer-bg {
+    background-image: url('../images/optimized/hero-1600.jpg');
+  }
 }
 
 .footer-bg::after {
