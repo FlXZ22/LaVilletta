@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Villetta | Irish Pub Cinisello Balsamo</title>
+  <title>La Villetta</title>
   <meta name="description"
     content="Dove la birra incontra l'anima irlandese. Vetrate panoramiche, birra fredda, gente vera.">
 
@@ -76,15 +76,39 @@
   </section>
 
   <!-- 2. Apple Style Scroll Video -->
-  <section id="apple-scroll">
+  <section id="apple-scroll" aria-label="Sequenza immersiva della birra La Villetta">
     <div class="sticky-apple">
-      <div class="video-container">
-        <video id="scroll-video" src="Assets/birra.mp4" playsinline muted preload="auto"></video>
-      </div>
-      <div class="apple-texts">
-        <div class="apple-text t1"><span>La nostra visione</span>Ogni pinta ha la sua storia.</div>
-        <div class="apple-text t2"><span>L'eccellenza</span>Versata con cura, servita con passione.</div>
-        <div class="apple-text t3"><span>Il Benvenuto</span>Benvenuto alla Villetta. 🍺</div>
+      <div class="apple-stage">
+        <div class="video-container">
+          <video id="scroll-video" playsinline muted preload="metadata" poster="images/optimized/birra-poster.jpg"
+            data-src-desktop="Assets/birra-desktop.mp4" data-src-mobile="Assets/birra-mobile.mp4"></video>
+        </div>
+        <div class="apple-stage-overlay apple-stage-wash"></div>
+        <div class="apple-stage-overlay apple-stage-focus"></div>
+        <div class="apple-stage-overlay apple-stage-vignette"></div>
+        <div class="apple-texts" aria-live="off">
+          <div class="apple-copy-shell">
+            <div class="apple-text t1">
+              <p class="apple-kicker">La nostra visione</p>
+              <p class="apple-title">
+                <span class="apple-title-line">Ogni pinta<br class="apple-mobile-break">ha la sua storia.</span>
+              </p>
+            </div>
+            <div class="apple-text t2">
+              <p class="apple-kicker">L'eccellenza</p>
+              <p class="apple-title">
+                <span class="apple-title-line">Versata con cura.</span>
+                <span class="apple-title-line">Servita con intenzione.</span>
+              </p>
+            </div>
+            <div class="apple-text t3">
+              <p class="apple-kicker">Il benvenuto</p>
+              <p class="apple-title">
+                <span class="apple-title-line">Benvenuto alla<br class="apple-mobile-break">Villetta.</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -359,13 +383,15 @@
                   <span id="open-text">Calcolando...</span>
                 </span>
               </h4>
-              <p>
-                Lun–Gio: 6:30 – 21:00<br>
-                Ven: 6:30 – 22:00<br>
-                Sab: 16:00 – 00:00<br>
-                Dom: Variabile — <a href="tel:0266594895"
-                  style="color: inherit; text-decoration: underline;">contattaci</a>
-              </p>
+                <p>
+                  Lunedì: 06:30 - 21:00<br>
+                  Martedì: 06:30 - 21:00<br>
+                  Mercoledì: 06:00 - 21:00<br>
+                  Giovedì: 06:30 - 21:00<br>
+                  Venerdì: 06:00 - 22:00<br>
+                  Sabato: 18:00 - 02:00<br>
+                  Domenica: Chiuso
+                </p>
             </div>
           </div>
 
@@ -417,10 +443,13 @@
         <div class="footer-col">
           <h3>Orari</h3>
           <ul>
-            <li><span>Lun–Gio:</span> 6:30–21:00</li>
-            <li><span>Ven:</span> 6:30–22:00</li>
-            <li><span>Sab:</span> 16:00–00:00</li>
-            <li><span>Dom:</span> su chiamata</li>
+            <li><span>Lun:</span> 06:30-21:00</li>
+            <li><span>Mar:</span> 06:30-21:00</li>
+            <li><span>Mer:</span> 06:00-21:00</li>
+            <li><span>Gio:</span> 06:30-21:00</li>
+            <li><span>Ven:</span> 06:00-22:00</li>
+            <li><span>Sab:</span> 18:00-02:00</li>
+            <li><span>Dom:</span> Chiuso</li>
           </ul>
         </div>
         <div class="footer-col">
